@@ -37,16 +37,19 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.30</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>1.32</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
           </linkerLibItems>
         </linkerTool>
+        <archiverTool>
+        </archiverTool>
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
       </compileType>
@@ -70,6 +73,8 @@
         <property key="optimization-assembler-files" value="true"/>
         <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
+        <property key="optimization-invariant-enable" value="false"/>
+        <property key="optimization-invariant-value" value="16"/>
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>
@@ -149,10 +154,10 @@
         <property key="tracecontrol.include.timestamp" value="false"/>
         <property key="tracecontrol.select" value="0"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
-        <property key="tracecontrol.timestamp" value="2"/>
+        <property key="tracecontrol.timestamp" value="0"/>
         <property key="tracecontrol.tracebufmax" value="546000"/>
         <property key="tracecontrol.tracefile"
-                  value="/home/rdias/source/PIC-softUART/defmplabxtrace.log"/>
+                  value="C:\sources\PIC-softUART\debug\default\defmplabxtrace.log"/>
         <property key="tracecontrol.traceresetonrun" value="false"/>
         <property key="uart10io.output" value="window"/>
         <property key="uart10io.outputfile" value=""/>
