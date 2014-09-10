@@ -27,25 +27,27 @@
  ;/
 
 
-#include "P18CXXX.INC"
+#include <pic18_chip_select.inc>
 
-		GLOBAL  CPU_EnableAllInt
+PSECT text,class=CODE
 
-CPU_EnableAllInt_CODE CODE
+GLOBAL  CPU_EnableAllInt
+
+;CPU_EnableAllInt_CODE CODE
 
 CPU_EnableAllInt:
 		BANKSEL	INTCON
-		bcf			INTCON, RBIF
-		bcf			INTCON, INT0IF
+		bcf     RBIF
+		bcf		INT0IF
 		;bcf			INTCON, TMR0IF
 
 		BANKSEL	INTCON3
-		bcf			INTCON3, INT1IF
-		bcf			INTCON3, INT2IF
+		bcf		INT1IF
+		bcf		INT2IF
 		
 		BANKSEL	INTCON
-		movlw		0xC0
-		iorwf		INTCON,F
+		movlw	0xC0
+		iorwf	INTCON,F
     return
 
 
