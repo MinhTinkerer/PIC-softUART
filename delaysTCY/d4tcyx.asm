@@ -1,6 +1,6 @@
  ;;
- ; CPU_disableAll_Int
- ;  disable all interrupts sources
+ ; d4tcyx
+ ;  do a delay of 4cc
  ;  Author: Rafael Dias Menezes
  ;  company: Taioba Corporation
  ;  email: rdmeneze@yahoo.com.br
@@ -26,20 +26,26 @@
  ;  -- 09/2009 by rdias: Initial version
  ;/
 
-;#include "P18CXXX.INC"
+
+;#include <P18CXXX.INC>
 #include <pic18_chip_select.inc>
+
+    GLOBAL  _Delay4TCYx
+
+
+;D1TCYXCODE CODE
 
 PSECT text,class=CODE
 
-GLOBAL  _CPU_DisableAllInt
-
-;CPU_DISABLEALLInt_CODE CODE
-
-_CPU_DisableAllInt:
-    BANKSEL	INTCON
-    ;movlw  ~0xC0
-    movlw	0x3F
-    andwf	INTCON,F			; clean the bits 7 and 6 of intcon. See datasheet
+_Delay4TCYx:
+    movlw   0xff				; 1
+    movf    PLUSW1,W		; 1 
+D4x											; restam WREG - 4 ciclos
+		nop									; 1
+    decfsz  WREG,F     	; 1
+    bra     $-4        	; 2
     return
 
+
     END
+    

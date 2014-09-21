@@ -5,6 +5,13 @@
       <itemPath>cpu/cpu.c</itemPath>
       <itemPath>cpu/CPU_EnableAll_Int.asm</itemPath>
       <itemPath>cpu/cpu.h</itemPath>
+      <itemPath>cpu/CPU_disableAll_Int.asm</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f3" displayName="delaysTCY" projectFiles="true">
+      <itemPath>delaysTCY/Delay1TCYx.h</itemPath>
+      <itemPath>delaysTCY/Delay4TCYx.h</itemPath>
+      <itemPath>delaysTCY/d1tcyx.asm</itemPath>
+      <itemPath>delaysTCY/d4tcyx.asm</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -22,6 +29,16 @@
       <itemPath>src/interruptions.c</itemPath>
       <itemPath>src/main.c</itemPath>
     </logicalFolder>
+    <logicalFolder name="f1" displayName="sw_uart" projectFiles="true">
+      <itemPath>sw_uart/openuart.asm</itemPath>
+      <itemPath>sw_uart/readuart.asm</itemPath>
+      <itemPath>sw_uart/sw_serial_delays.c</itemPath>
+      <itemPath>sw_uart/sw_serial_delays.h</itemPath>
+      <itemPath>sw_uart/sw_uart.h</itemPath>
+      <itemPath>sw_uart/sw_uart_pinout.inc</itemPath>
+      <itemPath>sw_uart/uartdata.asm</itemPath>
+      <itemPath>sw_uart/writuart.asm</itemPath>
+    </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
@@ -33,6 +50,8 @@
     <Elem>src</Elem>
     <Elem>util</Elem>
     <Elem>cpu</Elem>
+    <Elem>sw_uart</Elem>
+    <Elem>delaysTCY</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -45,18 +64,15 @@
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.33</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
           </linkerLibItems>
         </linkerTool>
-        <archiverTool>
-        </archiverTool>
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
-          <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
       </compileType>
@@ -71,8 +87,8 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
-        <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value="inc;cpu"/>
+        <property key="define-macros" value="FOSC=18432000;SWBAUD=19200"/>
+        <property key="extra-include-directories" value="inc;cpu;sw_uart;delaysTCY"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
@@ -80,8 +96,6 @@
         <property key="optimization-assembler-files" value="true"/>
         <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
-        <property key="optimization-invariant-enable" value="false"/>
-        <property key="optimization-invariant-value" value="16"/>
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
         <property key="optimization-speed" value="false"/>

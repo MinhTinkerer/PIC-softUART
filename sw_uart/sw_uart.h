@@ -13,7 +13,7 @@
 
 /* Function Prototypes */
 
-#define PARAM_SCLASS auto
+/*#define PARAM_SCLASS auto*/
 
 /* OpenUART
  * Configures the UART I/O pins
@@ -28,17 +28,17 @@ char ReadUART(void);
 /* WriteUART
  * Writes a byte to the UART
  */
-void WriteUART(PARAM_SCLASS char);
+void WriteUART(char);
 
 /* getsUART
  * Reads a string from UART
  */
-void getsUART(PARAM_SCLASS char *, PARAM_SCLASS unsigned char);
+void getsUART(  char *,   unsigned char);
 
 /* putsUART
  * Writes a string to the UART
  */
-void putsUART(PARAM_SCLASS char *);
+void putsUART(  char *);
 
 /* getcUART
  * getc is really read

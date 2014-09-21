@@ -1,13 +1,18 @@
-#include <P18CXXX.INC>
+;#include <P18CXXX.INC>
+#include <pic18_chip_select.inc>
 #include "sw_uart_pinout.inc"
 
-        EXTERN  DelayRXHalfBitUART
-        EXTERN  DelayRXBitUART
-        EXTERN  DelayTXBitUART
+        EXTERN  _DelayRXHalfBitUART
+        EXTERN  _DelayRXBitUART
+        EXTERN  _DelayTXBitUART
         EXTERN  uartdata
         EXTERN  BitCount
 
-UARTCODE        CODE
+        GLOBAL  ReadUART
+
+PSECT text,class=CODE
+
+;UARTCODE        CODE
 ;************************************************************************
 ;*      Function Name:  ReadUART                                        *
 ;*      Return Value:   char: received data                             *
@@ -30,7 +35,7 @@ UARTCODE        CODE
 ;*                              2 Tcy for return from DelayRXBit        *
 ;*                              = (((2*OSC_FREQ)/(4*BAUDRATE))+1)/2 Tcy *
 ;************************************************************************
-ReadUART
+_ReadUART
 
 				;BANKSEL	INTCON
 				;bcf 		INTCON,GIE
@@ -69,7 +74,5 @@ GetChar                                 ; Loop to get all 8-bits
 				;bsf 		INTCON,PEIE
 
         return                          ; Return received character
-
-        GLOBAL  ReadUART
 
         END

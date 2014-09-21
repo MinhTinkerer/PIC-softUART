@@ -26,16 +26,15 @@
  ;  -- 09/2009 by rdias: Initial version
  ;/
 
-
 #include <pic18_chip_select.inc>
 
 PSECT text,class=CODE
 
-GLOBAL  CPU_EnableAllInt
+GLOBAL  _CPU_EnableAllInt
 
 ;CPU_EnableAllInt_CODE CODE
 
-CPU_EnableAllInt:
+_CPU_EnableAllInt:
 		BANKSEL	INTCON
 		bcf     RBIF
 		bcf		INT0IF

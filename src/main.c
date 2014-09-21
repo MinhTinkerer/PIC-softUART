@@ -64,7 +64,5 @@ void main(void)
     
     uint16_t i;
 
-    CPU_EnableAllInt();
-
     for( i = 0; i< 100; i++);
 }
